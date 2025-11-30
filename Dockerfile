@@ -10,11 +10,13 @@ suiup install sui
 EOF
 
 FROM base AS sui_cli_bash_completions
-COPY --link completions/sui_cli_completions.bash /etc/bash_completion.d/sui
+COPY completions/sui_cli_completions.bash /etc/bash_completion.d/sui
+RUN echo "source /etc/bash_completion.d/sui" >> /root/.bashrc
 ENTRYPOINT [ "bash" ]
 
 
 FROM base AS sui_cli_zsh_completions
 RUN apk add --no-cache zsh
-COPY --link completions/sui_cli_completions.zsh /usr/share/zsh/site-functions/_sui
+RUN mkdir -p /usr/share/zsh/site-functions
+COPY completions/sui_cli_completions.zsh /usr/share/zsh/site-functions/_sui
 ENTRYPOINT [ "zsh" ]
