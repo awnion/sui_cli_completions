@@ -29,7 +29,6 @@ jobs:
         with:
           push: true
           set: |
-            *.file=Dockerfile
             *.context=.
             sui_cli_bash_completions.tags=ghcr.io/${{ github.repository }}/sui_cli_bash_completions:latest
             sui_cli_zsh_completions.tags=ghcr.io/${{ github.repository }}/sui_cli_zsh_completions:latest
