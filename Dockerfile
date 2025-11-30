@@ -6,7 +6,7 @@ RUN <<EOF
 set -e
 apk add --no-cache curl
 curl -sSfL https://raw.githubusercontent.com/Mystenlabs/suiup/main/install.sh | sh
-suiup install sui
+suiup install -y sui
 EOF
 
 FROM base AS sui_cli_bash_completions
