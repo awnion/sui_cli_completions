@@ -16,7 +16,7 @@ ENTRYPOINT [ "bash" ]
 
 
 FROM base AS sui_cli_zsh_completions
-RUN apk add --no-cache zsh
+RUN apt-get update && apt-get install -y zsh
 RUN mkdir -p /usr/share/zsh/site-functions
 COPY completions/sui_cli_completions.zsh /usr/share/zsh/site-functions/_sui
 ENTRYPOINT [ "zsh" ]
