@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM bash:latest AS base
+FROM ubuntu:latest AS base
 ENV PATH="/root/.local/bin:$PATH"
 RUN <<EOF
 set -e
-apk add --no-cache curl
+apt-get update && apt-get install -y curl
 curl -sSfL https://raw.githubusercontent.com/Mystenlabs/suiup/main/install.sh | sh
 suiup install -y sui
 EOF
